@@ -40,3 +40,20 @@ const crearResumen = (jugador) => ({
 console.log(
 crearResumen(jugadores[3])
 );
+
+//Etapa 4 · Tu propio "para cada jugador" 
+const paraCadaJugador = (accion) => {
+    for(let i = 0; i < jugadores.length; i++){
+        accion(jugadores[i]);
+    }
+};
+
+console.log("-- solo nombre --");
+paraCadaJugador((jugador) => {
+    console.log(jugador.nombre);
+});
+
+console.log("-- nombre y país --");
+paraCadaJugador((jugador) => {
+    console.log(`${jugador.nombre} - ${jugador.pais}`);
+});
