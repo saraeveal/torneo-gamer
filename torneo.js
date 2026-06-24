@@ -10,3 +10,21 @@ for(let i = 0; i < jugadores.length; i++){
     console.log(`${jugador.nombre} (${jugador.pais})`);
 
 }
+
+const puntajeTotal = (jugador) => {
+    return jugador.puntajes.reduce((total,puntaje) => 
+        total + puntaje, 0
+    );
+};
+
+const promedio = (jugador) => {
+    return puntajeTotal(jugador) / jugador.puntajes.length;
+};
+
+console.log(
+`${jugadores[0].nombre}: total ${puntajeTotal(jugadores[0])}, promedio ${promedio(jugadores[0])}`
+);
+
+console.log(
+`${jugadores[3].nombre}: total ${puntajeTotal(jugadores[3])}, promedio ${promedio(jugadores[3])}`
+);
