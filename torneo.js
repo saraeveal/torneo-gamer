@@ -57,3 +57,21 @@ console.log("-- nombre y país --");
 paraCadaJugador((jugador) => {
     console.log(`${jugador.nombre} - ${jugador.pais}`);
 });
+
+//Etapa 5 · Arrow como "condición" (predicado) 
+const contarJugadoresQue = (condicion) => {
+    let cantidad = 0;
+
+    for(let i=0; i < jugadores.length; i++){
+        if(condicion(jugadores[i])){
+            cantidad ++;
+        }
+    }
+    return cantidad;
+};
+
+console.log(`Con 400+ puntos: ${contarJugadoresQue((jugador)=> puntajeTotal(jugador) >= 400)}`
+);
+
+console.log(`Del país CL: ${contarJugadoresQue((jugador)=> jugador.pais === "CL")}`
+);
