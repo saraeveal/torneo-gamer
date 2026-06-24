@@ -105,3 +105,39 @@ paraCadaJugador((jugador)=> {
     let total = puntajeTotal(jugador);
     console.log(`${jugador.nombre} (${total}): ${medalla(total)}`);
 });
+
+//Jefe Final · El reporte del torneo 
+const reporteTorneo = () => {
+
+    console.log("===== TORNEO GAMER 2026 =====");
+    console.log("");
+    console.log("-- JUGADORES --");
+
+    paraCadaJugador((jugador)=>{
+        let total = puntajeTotal(jugador);
+        let prom = promedio(jugador);
+        let premio = medalla(total);
+        let estado = clasificar(jugador);
+        console.log(`${jugador.nombre}: ${total} pts (prom ${prom}) → ${premio} → ${estado}`);
+    });
+
+    console.log("");
+    console.log("-- ESTADÍSTICAS --");
+
+    let clasificados = contarJugadoresQue(
+    (jugador)=> clasificar(jugador) === "Clasificado"
+    );
+
+    let chile =contarJugadoresQue(
+    (jugador)=> jugador.pais === "CL"
+    );
+
+    console.log(`Clasificados a la final: ${clasificados}`
+    );
+
+    console.log(`Jugadores de CL: ${chile}`
+    );
+
+};
+
+reporteTorneo();
