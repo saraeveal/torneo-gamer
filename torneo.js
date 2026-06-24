@@ -87,3 +87,21 @@ const clasificar = (jugador, minimo = 400) => {
 console.log(`${jugadores[0].nombre}: ${clasificar(jugadores[0])}`);
 console.log(`${jugadores[3].nombre}: ${clasificar(jugadores[3])}`);
 console.log(`${jugadores[0].nombre} (mínimo 300): ${clasificar(jugadores[0], 300)}`);
+
+//Etapa 7 · Medalla por puntaje (guard clauses)
+const medalla = (total) => {
+    if(total >= 800){
+    return "🥇 Oro";
+    }
+    if(total >= 500){
+    return "🥈 Plata";
+    }
+    if(total >= 300){
+    return "🥉 Bronce";
+    }
+    return "Sin medalla";
+};
+paraCadaJugador((jugador)=> {
+    let total = puntajeTotal(jugador);
+    console.log(`${jugador.nombre} (${total}): ${medalla(total)}`);
+});
