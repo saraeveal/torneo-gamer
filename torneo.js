@@ -75,3 +75,15 @@ console.log(`Con 400+ puntos: ${contarJugadoresQue((jugador)=> puntajeTotal(juga
 
 console.log(`Del país CL: ${contarJugadoresQue((jugador)=> jugador.pais === "CL")}`
 );
+
+//Etapa 6 · Clasificar con valor por defecto
+const clasificar = (jugador, minimo = 400) => {
+    let total = puntajeTotal(jugador);
+    if(total >= minimo){
+        return "Clasificado";
+    }
+    return "Eliminado";
+};
+console.log(`${jugadores[0].nombre}: ${clasificar(jugadores[0])}`);
+console.log(`${jugadores[3].nombre}: ${clasificar(jugadores[3])}`);
+console.log(`${jugadores[0].nombre} (mínimo 300): ${clasificar(jugadores[0], 300)}`);
